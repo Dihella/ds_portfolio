@@ -1,0 +1,105 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+# **From the Past to the Present: How Popular is a Baby's Name?**
+
+## Dihella Ikapitte
+
+The babynames dataset gives us from each year from 1880 to 2017, the number of children that have one of those names and what their sex is. The names are provided by the SSA, the Social Security Administration, of the United States. The Social Security Administration manages social security benefits and issues social security cards. There are 1,924,665 rows in the data set spanning 137 years. As time has progressed, the popularity of names has grown or lessened, so to know more about the popularity of baby names, let's load in our packages and get to step into over a century of it.
+
+
+```{r results="hide"}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+library(babynames)
+```
+
+
+First, I want to know the total amount of names in the dataset and split it into two categories: female and male just so I can see how many names are categorized as female or male.
+
+
+```{r}
+# Bar chart of the total number of baby names, female and male
+ggplot(babynames, aes(x = sex, fill = sex)) +
+  geom_bar() +
+  labs(
+    title = "Distribution of Baby Names by Gender",
+    x = "Gender",
+    y = "Count",
+    fill = "Gender"
+  )
+```
+
+
+This bar graph shows the total number of baby names of both females and males. The sex is represented as either a "F" or "M" at the x axis and the total number of the baby names is the y axis. As the graph represents the data set, there are a high number of baby names that are female than baby names that are male, with over 900,000 names that were given to females and over 600,000 names that were given to males. Next, I want to see a specific name like Mary and filter out the name to see how prevalent the name is.
+
+
+```{r}
+babynames |>
+  filter(name == "Mary")
+```
+
+
+This table shows the year, sex, and number of people with the name Mary. What is interesting is that there are males that are named Mary, which I didn't expect in this dataset. I want to see the popularity of the name from 1880 to 2017 to see if the name has lost or gained popularity for either sex, so let's make a line plot with the name "Mary" as an example.
+
+
+```{r}
+# line plot of the popularity of the name "Mary" 
+babynames |>
+  filter(name == "Mary") |>
+  ggplot(aes(x = year, y = n)) +
+  geom_line() +
+  facet_wrap(~sex, scale = "free_y") +
+  labs(
+    title = "Popularity of the name: Mary",
+    x = "Year",
+    y = "Count"
+)
+```
+
+This line plot has the year as the x axis and the total count of the names through 1880 to 2017 as the y axis. The line shows the popularity of the name, through how many people were given the name as babies. As there are more females named Mary, the count of the y axis is higher at over 60,000 than the count of the males named Mary, which is only over 300. For females, as the years go by, there are a few small peaks after 1880, most likely around 1900-1910. It soon has a massive spike before 1920 to where the highest peak of females named Mary is in 1921, based on the table prior to this graph, with a count of 73,982. For males, there is a lot more fluctuation in the graph as the years progress. It increases before 1920, but not on the same level as the other line plot. The peak of names given is in 1930, with 340 males given the name Mary, based on the prior table. After that, the fluctuation continues until a sharp decrease, more fluctuation around 1960, another decline and continually low numbers after 2000. It would be interesting to see if a masculine name has been given to a female, so let's make another table to filter out a name.
+
+
+```{r}
+babynames |>
+  filter(name == "John")
+```
+
+
+Like the filtering of the name "Mary", there are females named John, so let's also make another line plot to see how popular the name has become throughout time with both sexes.
+
+
+```{r}
+# line plot of the popularity of the name "John"
+babynames |>
+  filter(name == "John") |>
+  ggplot(aes(x = year, y = n)) +
+  geom_line() +
+  facet_wrap(~sex, scale = "free_y") +
+  labs(
+    title = "Popularity of the name: John",
+    x = "Year",
+    y = "Count"
+)
+```
+
+
+As the previous line plot with "Mary" as the name that was used, the year is the x axis and the total count is the y axis. For females, the highest count of names goes a past 400, but for males, it goes over 75,000. The graph for females has a lot more fluctuation than the plot for males in the previous line plot, but the peak of names is 440 female babies named John in 1927 based on the table before. There is a steep increase before 1920 until the peak and after that, a steep decline until is fluctuates until 1989 to 1990 where it decreased from 134 to 81, only to increase a bit in 2004 to 71, and then a steady decline afterwards. For males, the number was low from 1880 to 1909 until a sharp increase from 1910. There is another small decline before the number of names given increase around 1950, where the peak is 83,193 baby males named John in 1952. After 1960s, there is a steep drop and afterwards slowly declines past the 1980s into the 21st century.
+
+
+# Conclusion
+
+The line plots of the babynames package show the rise and fall of two names and the number of males and females were given that name. For the plots for the name Mary, there was more popularity with female babies than with male babies. For the line plots for the name John, the popularity of the name was higher for males than it was for females. One reason that is possible for both is because Mary is a feminine name, so it is highly common for parents to name their female babies Mary instead of naming their male baby Mary. It is the same for John; it is a traditional masculine name, so it is uncommon for parents to name their female baby John. the There could be possible limitations with this data set. One would be since it starts in 1880, if some of the information could be outdated, could be false, and haven't updated. Alongside the dataset possibly not being updated, it might not capture all the names, for example, different spelling of names or rare/uncommon names, so it might affect the plots if I used different names. 
+ 
+
+
+
+
+
+
+
+
