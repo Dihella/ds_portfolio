@@ -16,4 +16,4 @@
 
   ### Springfield's Guide to Data Wrangling
   - This project is about learning how to data wrangle in R Studio with the Simpsons Episodes dataset from Kaggle
-  - [Springfield's Guide to Data Wrangling](https://github.com/Dihella/Mini-Project-2)
+  - [Springfield's Guide to Data Wrangling](https://github.com/Dihella/Mini-Project-2) 
