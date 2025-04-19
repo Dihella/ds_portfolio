@@ -11,4 +11,9 @@
 
   ## Projects
   ### From the Past to the Present
-  - 
+  - This project used a data set called babynames to see how popular a name is throughout time and what sex it was popular with.
+  - [From the Past to the Present](https://github.com/Dihella/Mini-Project-1)
+
+  ### Springfield's Guide to Data Wrangling
+  - This project is about learning how to data wrangle in R Studio with the Simpsons Episodes dataset from Kaggle
+  - [Springfield's Guide to Data Wrangling](https://github.com/Dihella/Mini-Project-2)
