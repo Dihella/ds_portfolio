@@ -20,4 +20,4 @@
  
   ### Binge Worthy or Cancelled Show? Predicting Netflix Seasons
   - This final project used a Netflix dataset from Kaggle to predict the amount of seasons a show will have based on duration and score.
-  - [Binge Worthy or Cancelled Show? Predicting Netflix Seasons]
+  - [Binge Worthy or Cancelled Show? Predicting Netflix Seasons](https://github.com/Dihella/Binge-Worthy-or-Cancelled-Show-Predicting-Netflix-Seasons) 
